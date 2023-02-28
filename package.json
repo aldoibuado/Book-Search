@@ -3,6 +3,10 @@
     "version": "1.0.0",
     "description": "book-search-engine",
     "main": "server/server.js",
+    "enginges": {
+      "node": "16.18.0",
+      "npm": "8.19.2"
+    },
     "scripts": {
       "start": "node server/server.js",
       "develop": "concurrently \"cd server && npm run watch\" \"cd client && npm start\"",
