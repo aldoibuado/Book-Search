@@ -62,6 +62,7 @@ const SearchBooks = () => {
 
     // get token
     const token = Auth.loggedIn() ? Auth.getToken() : null;
+    console.log(token)
 
     if (!token) {
       return false;
