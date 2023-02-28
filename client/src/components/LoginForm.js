@@ -30,7 +30,7 @@ const LoginForm = () => {
     try {
       const { data } = await login({
         variables: { ...userFormData }
-      })
+      });
       // const response = await loginUser(userFormData);
 
       // if (!response.ok) {

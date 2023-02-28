@@ -9,8 +9,7 @@ const resolvers = {
       if (context.user) {
         const userData = await User
         .findOne({ _id: context.user._id })
-        .select(
-          "-__v -password")
+        .select("-__v -password")
         .populate('books');
         return userData;
       }
@@ -36,35 +35,39 @@ const resolvers = {
 
       return { token, user };
     },
+
     addUser: async (parent, args) => {
-        const user = await User.create(args);
-        const token = signToken(user);
-        return { token, user };
+      const user = await User.create(args);
+      const token = signToken(user);
+      return { token, user };
     },
+
     // Adding third argument to the resolver to access data in our `context`
     saveBook: async (parent, { bookData }, context) => {
       if (context.user) {
-        const updatedUser = await User.findOneAndUpdate(
+        const updatedUser = await User
+        .findOneAndUpdate(
           { _id: context.user._id },
-          { $addToSet: { savedBooks: bookData }},
-          { new: true},
+          { $addToSet: { savedBooks: bookData } },
+          { new: true },
         )
         .populate('books');
         return updatedUser;
       }
-      throw new AuthenticationError('You need to be logged in!');
+      throw new AuthenticationError("You need to be logged in!");
     },
+
     removeBook: async (parent, { bookId }, context) => {
       if (context.user) {
         const updatedUser = await User.findOneAndUpdate(
           { _id: context.user._id },
-          { $pull: { savedBooks: {bookId } } },
-          { new: true},
+          { $pull: { savedBooks: { bookId } } },
+          { new: true }
         );
         return updatedUser;
       }
-    //   If user attempts to execute this mutation and is not logged in, throw an error
-      throw new AuthenticationError('You need to be logged in!');
+      //   If user attempts to execute this mutation and is not logged in, throw an error
+      throw new AuthenticationError("You need to be logged in!");
     },
   },
 };
