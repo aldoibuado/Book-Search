@@ -9,7 +9,7 @@ import { removeBookId } from '../utils/localStorage';
 
 const SavedBooks = () => {
   const { loading, data } = useQuery(GET_ME);
-  const [removeBook, { error }] = useMutation(REMOVE_BOOK);
+  const [removeBook] = useMutation(REMOVE_BOOK);
 
   const userData = data?.me || {};
 
@@ -30,6 +30,7 @@ const SavedBooks = () => {
         variables: { bookId },
       });
 
+      console.log(data)
       // upon success, remove book's id from localStorage
       removeBookId(bookId);
     } catch (err) {
