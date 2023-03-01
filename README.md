@@ -21,10 +21,13 @@
   [Questions](#questions)
 
   ## Installation
-  The user would go to the command line and input, npm install, then npm start.
+  The user would go to the command line and input, npm install, then npm run develop to start the server.
 
   ## Usage
-  I have attached a link to the deployed application that is on Heroku.
+  Here is a screenshot that shows the functionality of the book-search enginge!
+  ![Screenshot (58)](https://user-images.githubusercontent.com/109316738/222289911-3b2fc6b8-804d-432d-95bc-965ac579b106.png)
+
+  I have attached a link https://the-rad-search.herokuapp.com/ to the deployed application that is on Heroku.
 
   ## License
   ![badge](https://img.shields.io/badge/license-MIT-brightgreen) <br/>
