@@ -23,6 +23,7 @@
     "concurrently": "^5.1.0"
   },
   "dependencies": {
+    "serve": "^14.2.0",
     "server": "^1.0.38"
   }
 }
